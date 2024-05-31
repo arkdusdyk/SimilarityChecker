@@ -9,3 +9,11 @@ TEST(SimilarityCheckerTest, lengthCheck) {
 	double actual = app.lengthCheck(input);
 	EXPECT_EQ(actual, expected);
 }
+
+TEST(SimilarityCheckerTest2, lengthCheck) {
+	SimilarityChecker app;
+	vector<string> input = { "A", "BB" };
+	double expected = 0;
+	double actual = app.lengthCheck(input);
+	EXPECT_EQ(actual, expected);
+}
