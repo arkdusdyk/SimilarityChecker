@@ -10,6 +10,14 @@ public:
 		int shorter_length = b.length();
 		if (longer_length < shorter_length)
 			swap(longer_length, shorter_length);
-		return (1 - (double)(longer_length - shorter_length) / shorter_length) * 60;
+
+		if (longer_length == shorter_length)
+			return lengthMaxScore;
+		if (longer_length >= (2 * shorter_length))
+			return lengthMinScore;
+		return (1 - (double)(longer_length - shorter_length) / shorter_length) * lengthMaxScore;
 	}
+private:
+	int lengthMaxScore = 60;
+	int lengthMinScore = 0;
 };
