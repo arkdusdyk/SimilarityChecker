@@ -25,3 +25,27 @@ TEST(SimilarityCheckerTest4, lengthCheck) {
 	double actual = app.lengthCheck("AA", "AAE");
 	EXPECT_EQ(actual, 30);
 }
+
+TEST(SimilarityCheckerTest5, alphaCheck) {
+	SimilarityChecker app;
+	double actual = app.alphaCheck("ASD", "DSA");
+	EXPECT_EQ(actual, 40);
+}
+
+TEST(SimilarityCheckerTest6, alphaCheck) {
+	SimilarityChecker app;
+	double actual = app.alphaCheck("A", "BB");
+	EXPECT_EQ(actual, 0);
+}
+
+TEST(SimilarityCheckerTest7, alphaCheck) {
+	SimilarityChecker app;
+	double actual = app.alphaCheck("AAABB", "BA");
+	EXPECT_EQ(actual, 40);
+}
+
+TEST(SimilarityCheckerTest8, alphaCheck) {
+	SimilarityChecker app;
+	double actual = app.alphaCheck("AA", "AAE");
+	EXPECT_EQ(actual, 20);
+}
