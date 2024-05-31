@@ -1,27 +1,86 @@
 #include "pch.h"
 #include "../SimilarityChecker/similarity_check.cpp"
 using namespace std;
+TEST(TestCaseName, SimilarLength) {
+	SimilarLength app;
+	string input1 = "ABCD";
+	string input2 = "BTSE";
+	int expected = 60;
 
-TEST(SimilarityCheckerTest, lengthCheck) {
-	SimilarityChecker app;
-	double actual = app.lengthCheck("ASD", "DSA");
-	EXPECT_EQ(actual, 60);
+	int actual = app.getLengthPoint(input1, input2);
+
+	EXPECT_EQ(actual, expected);
 }
 
-TEST(SimilarityCheckerTest2, lengthCheck) {
-	SimilarityChecker app;
-	double actual = app.lengthCheck("A", "BB");
-	EXPECT_EQ(actual, 0);
+TEST(TestCaseName, SimilarLength2) {
+	SimilarLength app;
+	string input1 = "ABCD";
+	string input2 = "BTSEIEOW";
+	int expected = 0;
+
+	int actual = app.getLengthPoint(input1, input2);
+
+	EXPECT_EQ(actual, expected);
 }
 
-TEST(SimilarityCheckerTest3, lengthCheck) {
-	SimilarityChecker app;
-	double actual = app.lengthCheck("AAABB", "BAA");
-	EXPECT_EQ(actual, 20);
+TEST(TestCaseName, SimilarLength3) {
+	SimilarLength app;
+	string input1 = "ABCD";
+	string input2 = "QW";
+	int expected = 0;
+
+	int actual = app.getLengthPoint(input1, input2);
+
+	EXPECT_EQ(actual, expected);
 }
 
-TEST(SimilarityCheckerTest4, lengthCheck) {
-	SimilarityChecker app;
-	double actual = app.lengthCheck("AA", "AAE");
-	EXPECT_EQ(actual, 30);
+TEST(TestCaseName, SimilarLength4) {
+	SimilarLength app;
+	string input1 = "ABCD";
+	string input2 = "QWR";
+	int expected = 40;
+
+	int actual = app.getLengthPoint(input1, input2);
+
+	EXPECT_EQ(actual, expected);
+}
+
+TEST(TestCaseName, SameCharTest) {
+	SimilarCharSame app;
+	string input1 = "ABCD";
+	string input2 = "DDBBAACC";
+	int expected = 40;
+
+	int actual = app.getSameCharPoint(input1, input2);
+	EXPECT_EQ(actual, expected);
+}
+
+TEST(TestCaseName, SameCharTest2) {
+	SimilarCharSame app;
+	string input1 = "QWEQWE";
+	string input2 = "ZZZXXXXX";
+	int expected = 0;
+
+	int actual = app.getSameCharPoint(input1, input2);
+	EXPECT_EQ(actual, expected);
+}
+
+TEST(TestCaseName, SameCharTest3) {
+	SimilarCharSame app;
+	string input1 = "AA";
+	string input2 = "AAE";
+	int expected = 20;
+
+	int actual = app.getSameCharPoint(input1, input2);
+	EXPECT_EQ(actual, expected);
+}
+
+TEST(TestCaseName, SimilarTest) {
+	Similar app;
+	string input1 = "AA";
+	string input2 = "AAE";
+	int expected = 30 + 20;
+
+	int actual = app.getSimilarPoint(input1, input2);
+	EXPECT_EQ(actual, expected);
 }
